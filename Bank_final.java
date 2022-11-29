@@ -7,17 +7,16 @@ public class Bank_final {
 		String name;
 		String accno;
 		double bal;
-		
-		//String accno_s,accno_r;
 
 		BankAccount b[] = new BankAccount[100];
 		n=0;
 
 		
 		int choice=0;
-		while (choice != 8)
+		while (choice != 7)
 		{
-			System.out.println("\n**************************Banking System Application***************************************\n");
+			System.out.println("\n**************************Banking System Application**************************\n");
+			System.out.println("\t\t\t\t\t\t\t-by riya,devesh and ritvik\n");
 			System.out.println("1.Create Account\n2.Display all accounts\n3.Search by Account Number\n4.Deposit amount\n5.Withdraw amount\n6.Transfer amount\n7.Exit");
 			System.out.println("Enter choice");
 			choice = sc.nextInt();
@@ -25,11 +24,10 @@ public class Bank_final {
 			switch(choice)
 			{
 			case 1:
-				System.out.println("Enter name:");
+				System.out.println("\nEnter name:");
 				name = sc.next();
 				System.out.println("Enter 12 digit account number:");
 				accno = sc.next();
-				
 				try
 				{
 					if(accno.length()==12)
@@ -46,7 +44,6 @@ public class Bank_final {
 				 System.out.println("Please enter valid account number..!!");
 				break;
 			    }
-				
 				System.out.println("Enter amount to deposit:");
 				bal = sc.nextDouble();
 				b[n] = new BankAccount(name,accno,bal);
@@ -236,45 +233,14 @@ public class Bank_final {
 					}
 				}
 				
-				// if (flag==0)
-				// {
-				// 	System.out.println("\nAccount not found");
-				// }
-				break;			
-				/*for (int i=0;i<n;i++)
-				{
-				 //if ((b[i].getAccno().equals(accno_s)) && ((b[i].getAccno().equals(accno_r))))
-					 {
-						 b[i].transfer(transfer_amt);
-						 flag=1;
-						 break;
-					 }
-				   
-				}
-				if (flag==0)
-				 {
-					 System.out.println("\nAccount not found");
-				 }*/
 			 case 7:
 				 break;
 			 default:
 				 System.out.println("Invalid choice");
 				 break;
-					
 			}
 		}
       sc.close();
 	}
 
 }
-
-class AccountnotValidException extends Exception{
-    
-   {
-    }
-}
-class InsufficientBalanceException extends Exception{
-    
-	{
-	 }
- }
