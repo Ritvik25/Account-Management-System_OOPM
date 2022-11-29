@@ -55,19 +55,28 @@ public class BankAccount {
 	{
 		System.out.println("Name:"+name);
 		System.out.println("Account number:"+accno);
-		if (balance-amount<1000)
+		try 
 		{
-			System.out.println("Insufficient balance");
-			return;
+			if (balance-amount>0){
+				System.out.println("Balance before withdrawing:"+balance);
+				balance-=amount;
+				System.out.println("Balance after withdrawing:"+balance);
+			}
+		else
+		{
+			throw new InsufficientBalanceException();
 		}
-		System.out.println("Balance before withdrawing:"+balance);
-		balance-=amount;
-		System.out.println("Balance after withdrawing:"+balance);
+	}
+	catch(InsufficientBalanceException a)
+	{
+		System.out.println("Insufficient Balance!!");
+	}
+		
 		
 	}
 	public void withdraw1(double amount)
 	{
-		if (balance-amount<1000)
+		if (balance-amount<0)
 		{
 			System.out.println("Insufficient balance");
 			return;
