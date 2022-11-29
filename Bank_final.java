@@ -15,7 +15,7 @@ public class Bank_final {
 
 		
 		int choice=0;
-		while (choice!=6)
+		while (choice != 8)
 		{
 			System.out.println("\n**************************Banking System Application***************************************\n");
 			System.out.println("1.Create Account\n2.Display all accounts\n3.Search by Account Number\n4.Deposit amount\n5.Withdraw amount\n6.Transfer amount\n7.Exit");
@@ -43,7 +43,7 @@ public class Bank_final {
 				 }
                  catch(AccountnotValidException a)
 				 {
-				 System.out.println("Invalid Account Number,please enter your choice again..!!");
+				 System.out.println("Please enter valid account number..!!");
 				break;
 			    }
 				
@@ -63,13 +63,29 @@ public class Bank_final {
 				}
 				break;
 			case 3:
-				String a;
+				String d;
 				int flag=0;
 				System.out.println("Enter 12 digit account number:");
-				a = sc.next();
+				d = sc.next();
+				try
+				{
+					if(d.length()==12)
+				{
+					System.out.println("");
+				}
+				else
+				{
+     			throw new AccountnotValidException();
+				}
+				 }
+                 catch(AccountnotValidException a)
+				 {
+				 System.out.println("Please enter valid account number..!!");
+				break;
+			    }
 				for (int i=0;i<n;i++)
 				{
-					if (b[i].getAccno().equals(a))
+					if (b[i].getAccno().equals(d))
 					{
 						System.out.println("Name:"+b[i].getName());
 						System.out.println("Account number:"+b[i].getAccno());
@@ -87,6 +103,22 @@ public class Bank_final {
 				flag=0;
 				System.out.println("Enter 12 digit account number:");
 				accno = sc.next();
+				try
+				{
+					if(accno.length()==12)
+				{
+					System.out.println("");
+				}
+				else
+				{
+     			throw new AccountnotValidException();
+				}
+				 }
+                 catch(AccountnotValidException a)
+				 {
+				 System.out.println("Please enter valid account number..!!");
+				break;
+			    }
 				System.out.println("Enter amount to be deposited:");
 				double amt = sc.nextDouble();
 				for (int i=0;i<n;i++)
@@ -109,6 +141,22 @@ public class Bank_final {
 				flag=0;
 				System.out.println("Enter 12 digit account number:");
 				accno = sc.next();
+				try
+				{
+					if(accno.length()==12)
+				{
+					System.out.println("");
+				}
+				else
+				{
+     			throw new AccountnotValidException();
+				}
+				 }
+                 catch(AccountnotValidException a)
+				 {
+				 System.out.println("Please enter valid account number..!!");
+				break;
+			    }
 				System.out.println("Enter amount to be withdrawn:");
 				int amount = sc.nextInt();
 				for (int i=0;i<n;i++)
@@ -125,10 +173,26 @@ public class Bank_final {
 					System.out.println("\nAccount not found");
 				}
 				break;
-				case 6:
+			case 6:
 				flag=0;
 				System.out.println("Enter your account number:");
 				accno=sc.next();
+				try
+				{
+					if(accno.length()==12)
+				{
+					System.out.println("");
+				}
+				else
+				{
+     			throw new AccountnotValidException();
+				}
+				 }
+                 catch(AccountnotValidException a)
+				 {
+				 System.out.println("Please enter valid account number..!!");
+				break;
+			    }
                 System.out.println("Enter amount to be transfered:");
 				int amountt = sc.nextInt();
 				for (int i=0;i<n;i++)
@@ -146,6 +210,22 @@ public class Bank_final {
 				}
 				System.out.println("Enter the account number in which you want to transfer:");
 				accno=sc.next();
+				try
+				{
+					if(accno.length()==12)
+				{
+					System.out.println("");
+				}
+				else
+				{
+     			throw new AccountnotValidException();
+				}
+				 }
+                 catch(AccountnotValidException a)
+				 {
+				 System.out.println("Please enter valid account number..!!");
+				break;
+			    }
 				for (int i=0;i<n;i++)
 				{
 					if (b[i].getAccno().equals(accno))
@@ -155,15 +235,12 @@ public class Bank_final {
 						break;
 					}
 				}
-				if (flag==0)
-				{
-					System.out.println("\nAccount not found");
-				}
-				break;
 				
-				
-				
-				
+				// if (flag==0)
+				// {
+				// 	System.out.println("\nAccount not found");
+				// }
+				break;			
 				/*for (int i=0;i<n;i++)
 				{
 				 //if ((b[i].getAccno().equals(accno_s)) && ((b[i].getAccno().equals(accno_r))))
@@ -196,3 +273,8 @@ class AccountnotValidException extends Exception{
    {
     }
 }
+class InsufficientBalanceException extends Exception{
+    
+	{
+	 }
+ }
